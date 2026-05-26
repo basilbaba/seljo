@@ -1,0 +1,225 @@
+<!-- templates/footer.html -->
+
+<style>
+
+.footer{
+    background:#0a0a0a;
+    color:white;
+    padding:60px 20px 20px;
+    border-top:2px solid #222;
+}
+.footer-bottom{
+  font-family: "Playwrite AR Guides", cursive;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.footer-container{
+    max-width:1200px;
+    margin:auto;
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:space-between;
+    gap:40px;
+}
+
+.footer-box{
+    flex:1;
+    min-width:250px;
+}
+
+.footer-logo{
+    color:red;
+    font-size:32px;
+    margin-bottom:15px;
+}
+
+.footer-text{
+    color:#ccc;
+    line-height:1.8;
+}
+
+.footer-title{
+    color:red;
+    margin-bottom:20px;
+    font-size:22px;
+}
+
+.footer-links{
+    list-style:none;
+}
+
+.footer-links li{
+    margin-bottom:12px;
+}
+
+.footer-links a{
+    color:white;
+    text-decoration:none;
+    transition:0.3s;
+}
+
+.footer-links a:hover{
+    color:red;
+}
+
+.footer-social{
+    display:flex;
+    gap:15px;
+    margin-top:20px;
+}
+
+.footer-social img{
+    width:38px;
+    transition:0.3s;
+}
+
+.footer-social img:hover{
+    transform:scale(1.1);
+}
+
+.footer-bottom{
+    text-align:center;
+    margin-top:50px;
+    padding-top:20px;
+    border-top:1px solid #222;
+    color:#999;
+    font-size:14px;
+}
+
+/* RESPONSIVE */
+
+@media(max-width:768px){
+
+    .footer-container{
+        flex-direction:column;
+    }
+
+}
+
+</style>
+
+<footer class="footer">
+
+    <div class="footer-container">
+
+        <!-- ABOUT -->
+
+        <div class="footer-box">
+
+            <img src="../static/Artboard 1.png" alt="logo" height="350px">
+
+            <h1 class="footer-logo">
+                AGNAR COMBAT CLUB
+            </h1>
+
+
+        </div>
+
+        <!-- QUICK LINKS -->
+
+        <div class="footer-box">
+
+            <h2 class="footer-title">
+                Quick Links
+            </h2>
+
+            <ul class="footer-links">
+
+                <li>
+                    <a href="#hero">Home</a>
+                </li>
+
+                <li>
+                    <a href="#about">About</a>
+                </li>
+
+                <li>
+                    <a href="#training">Training</a>
+                </li>
+
+                <li>
+                    <a href="#activities">Activities</a>
+                </li>
+
+                <li>
+                    <a href="#contact">Contact</a>
+                </li>
+                
+
+            </ul>
+
+        </div>
+        
+
+        <!-- CONTACT -->
+
+        <div class="footer-box">
+
+            <h2 class="footer-title">
+                Contact Info
+            </h2>
+
+            <p class="footer-text">
+                📍 AGNAR COMBAT CLUB ( ACC ) 
+                Petta,  Ernakulam, kerala, 682308.
+            </p>
+
+            <p class="footer-text">
+                📞 +91 7306114475
+            </p>
+
+            <p class="footer-text">
+                ✉ agnarcombatclub@gmail.com
+            </p>
+
+            <!-- SOCIAL -->
+
+            <div class="footer-social">
+
+                <a
+                href="https://wa.me/7306114475"
+                target="_blank"
+                >
+
+                    <img
+                    src="https://cdn-icons-png.flaticon.com/512/733/733585.png"
+                    alt="WhatsApp"
+                    >
+
+                </a>
+
+                <a
+                href="https://www.instagram.com/agnar_combat_club_"
+                target="_blank"
+                >
+
+                    <img
+                    src="https://cdn-icons-png.flaticon.com/512/733/733558.png"
+                    alt="Instagram"
+                    >
+
+                </a>
+                <a href="/login"><img src="../static/Artboard 1.png" alt="login" width="110px"></a>
+
+
+            </div>
+            <img src="../static/background-removed-background-removed.png" alt="" width="350px">
+            
+
+        </div>
+        
+
+    </div>
+    
+
+    <!-- BOTTOM -->
+
+    <div class="footer-bottom">
+        
+        
+        © 2025 AGNAR COMBAT CLUB | BK Creation
+
+    </div>
+
+</footer>

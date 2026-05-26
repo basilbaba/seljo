@@ -1,0 +1,1302 @@
+{% include 'header.html' %}
+
+
+
+
+<style>
+  *{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+
+html{
+  scroll-behavior:smooth;
+}
+
+body{
+  background:black;
+  color:white;
+  font-family:Arial,sans-serif;
+  overflow-x:hidden;
+}
+
+img{
+  max-width:100%;
+  display:block;
+}
+
+iframe{
+  width:100%;
+  border:0;
+  border-radius:10px;
+}
+
+h1{
+  font-family:"Momo Signature", cursive;
+  font-weight:400;
+  font-style:normal;
+}
+
+/* HERO */
+
+.details{
+  min-height:100vh;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  padding:20px;
+}
+
+.head h3{
+  font-size:60px;
+  color:red;
+  line-height:1.2;
+}
+
+.qu{
+  color:white;
+}
+
+/* ABOUT */
+
+#about{
+  width:100%;
+  padding:80px 20px;
+}
+
+.about-container{
+  max-width:1200px;
+  margin:auto;
+}
+
+.about-row{
+  display:none;
+  align-items:center;
+  justify-content:space-between;
+  gap:50px;
+  animation:fade 0.5s ease;
+}
+
+.about-row.active{
+  display:flex;
+}
+
+.about-col{
+  flex:1;
+}
+
+.about-image{
+  margin-left: 5px;
+}
+.about-imagee{
+
+  border-radius:15px;
+  margin-left: 130px;
+}
+
+.about-title{
+  color:red;
+  font-size:42px;
+  margin-bottom:20px;
+}
+
+.about-text{
+  color:#ddd;
+  line-height:1.9;
+  font-size:16px;
+}
+
+.btns{
+  margin-top:40px;
+  display:flex;
+  justify-content:center;
+  gap:20px;
+}
+
+.btns button{
+  padding:12px 30px;
+  border:none;
+  background:red;
+  color:white;
+  border-radius:8px;
+  cursor:pointer;
+  transition:0.3s;
+  font-size:16px;
+}
+
+.btns button:hover{
+  background:white;
+  color:black;
+}
+
+@keyframes fade{
+  from{
+    opacity:0;
+    transform:translateX(30px);
+  }
+  to{
+    opacity:1;
+    transform:translateX(0);
+  }
+}
+
+/* TRAINING */
+
+#training{
+  padding:80px 20px;
+}
+
+#training h1{
+  text-align:center;
+  color:red;
+  font-size:50px;
+}
+
+#training h2{
+  text-align:center;
+  margin-bottom:50px;
+  color:#ddd;
+}
+
+.container{
+  display:flex;
+  justify-content:center;
+  flex-wrap:wrap;
+  gap:30px;
+
+}
+
+/* CARD */
+
+.card{
+  width:400px;
+  height:420px;
+  position:relative;
+  overflow:hidden;
+  border-radius:20px;
+  border:2px solid #333;
+  background:#111;
+  transition:0.4s;
+  cursor:pointer;
+}
+
+.card:hover{
+  transform:translateY(-8px);
+}
+
+.card img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  transition:0.5s;
+}
+
+.card:hover img{
+  transform:scale(1.1);
+}
+
+.intro{
+  position:absolute;
+  bottom:0;
+  left:0;
+  width:100%;
+  padding:20px;
+  background:rgba(0,0,0,0.7);
+  transition:0.5s;
+  height:80px;
+  overflow:hidden;
+}
+
+.intro h3{
+  color:red;
+  margin-bottom:15px;
+  font-size:24px;
+}
+
+.intro p{
+  font-size:12px;
+  line-height:1.6;
+  color:#ddd;
+  opacity:0;
+  transition:0.5s;
+}
+
+.card:hover .intro{
+  height:240px;
+  background:rgba(0,0,0,0.9);
+}
+
+.card:hover .intro p{
+  opacity:1;
+}
+
+/* OTHER ACTIVITIES */
+
+#activities{
+  padding:80px 20px;
+}
+
+.simple-card{
+  width:350px;
+  position:relative;
+  overflow:hidden;
+  border-radius:20px;
+  border:2px solid #333;
+  transition:0.4s;
+}
+
+.simple-card:hover{
+  transform:translateY(-8px);
+}
+
+.simple-card img{
+  width:100%;
+  height:420px;
+  object-fit:cover;
+}
+
+.simple-card .intro{
+  position:absolute;
+  bottom:0;
+  width:100%;
+  background:rgba(0,0,0,0.8);
+}
+
+.simple-card .intro h3{
+  text-align:center;
+}
+
+/* CONTACT */
+
+.contact-container{
+  display:flex;
+  flex-wrap:wrap;
+  gap:40px;
+  padding:60px 20px;
+}
+
+.contact-left,
+.contact-right{
+  flex:1;
+  min-width:300px;
+}
+
+.contact-icon{
+  width:40px;
+  margin-right:10px;
+}
+
+/* GALLERY */
+
+.client-gallery{
+  width:100%;
+  padding:80px 20px;
+  background:black;
+}
+
+.client-gallery h1{
+  text-align:center;
+  font-size:45px;
+  margin-bottom:50px;
+  color:red;
+}
+
+.gallery-container{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+  gap:30px;
+}
+
+.gallery-card{
+  background:#111;
+  border-radius:18px;
+  overflow:hidden;
+  border:2px solid #222;
+  transition:0.4s;
+  box-shadow:0 5px 20px rgba(0,0,0,0.4);
+}
+
+.gallery-card:hover{
+  transform:translateY(-10px);
+}
+
+.gallery-card img{
+  width:100%;
+  height:250px;
+  object-fit:cover;
+}
+
+.gallery-content{
+  padding:20px;
+}
+
+.gallery-content h3{
+  margin-bottom:10px;
+  font-size:24px;
+  color:red;
+}
+
+.gallery-content p{
+  color:#ccc;
+  font-size:15px;
+  line-height:1.7;
+}
+
+.hidden-gallery{
+  display:none;
+}
+
+/* BUTTONS */
+
+.show-btn-box{
+  text-align:center;
+  margin-top:40px;
+}
+
+#showMoreBtn,
+.explore-btn{
+  padding:14px 35px;
+  background:red;
+  color:white;
+  border:none;
+  border-radius:8px;
+  font-size:16px;
+  cursor:pointer;
+  transition:0.3s;
+}
+
+#showMoreBtn:hover,
+.explore-btn:hover{
+  background:#cc0000;
+}
+
+/* PROVIDE */
+
+#Provide{
+  display:none;
+  padding:80px 20px;
+}
+
+#Provide h1{
+  text-align:center;
+  color:red;
+  font-size:50px;
+  margin-bottom:50px;
+}
+
+/* MOBILE RESPONSIVE */
+
+@media(max-width:768px){
+
+  .details{
+    min-height:80vh;
+    padding:20px;
+  }
+
+  .head h3{
+    font-size:34px;
+  }
+
+  .about-row{
+    flex-direction:column;
+    gap:30px;
+  }
+
+  .about-title{
+    font-size:32px;
+    text-align:center;
+  }
+
+  .about-text{
+    font-size:15px;
+    text-align:center;
+  }
+
+  .btns{
+    flex-direction:column;
+    align-items:center;
+  }
+
+  .btns button{
+    width:200px;
+  }
+
+  #training h1,
+  #Provide h1,
+  .client-gallery h1{
+    font-size:34px;
+  }
+
+  #training h2{
+    font-size:18px;
+  }
+
+  .card,
+  .simple-card{
+    width:100%;
+    max-width:340px;
+  }
+
+  .gallery-container{
+    grid-template-columns:1fr;
+  }
+
+  .gallery-card img{
+    height:220px;
+  }
+
+  .contact-container{
+    flex-direction:column;
+  }
+
+  .contact-left,
+  .contact-right{
+    width:100%;
+  }
+
+}
+
+@media(max-width:480px){
+
+  .head h3{
+    font-size:28px;
+  }
+
+  .about-title{
+    font-size:28px;
+  }
+
+  .about-text{
+    font-size:14px;
+  }
+
+  #training h1,
+  #Provide h1,
+  .client-gallery h1{
+    font-size:28px;
+  }
+
+  .intro h3{
+    font-size:20px;
+  }
+
+  .intro p{
+    font-size:10px;
+  }
+
+  .gallery-content{
+    padding:15px;
+  }
+
+  .gallery-content h3{
+    font-size:20px;
+  }
+
+  .gallery-content p{
+    font-size:13px;
+  }
+
+  #showMoreBtn,
+  .explore-btn{
+    width:100%;
+  }
+
+}
+</style>
+
+<!-- HERO -->
+
+<section id="hero">
+
+  <div class="details">
+
+    <div class="head">
+
+      <h3 id="heroText">
+        AGNAR COMBAT CLUB
+      </h3>
+
+    </div>
+
+  </div>
+
+</section>
+
+<script>
+const heroText = document.getElementById("heroText");
+
+const originalText = "AGNAR COMBAT CLUB";
+
+const hoverText = `
+ARE YOU <span class="qu">READY</span>
+<span class="qu">?</span><br>
+FOR THE BEST EXPERIENCE OF <br>
+A <span class="qu">LIFE</span> TIME
+`;
+
+let showingOriginal = true;
+
+setInterval(() => {
+  if (showingOriginal) {
+    heroText.innerHTML = hoverText;
+  } else {
+    heroText.innerHTML = originalText;
+  }
+
+  showingOriginal = !showingOriginal;
+}, 1990);
+</script>
+
+<!-- ABOUT -->
+
+<section id="about">
+
+  <style>
+
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+      font-family:Arial, sans-serif;
+    }
+
+    body{
+      background:#000;
+      color:#fff;
+    }
+
+    #about{
+      width:100%;
+      padding:80px 10%;
+    }
+
+    .about-container{
+      position:relative;
+      overflow:hidden;
+    }
+
+    .about-row{
+      display:none;
+      align-items:center;
+      justify-content:space-between;
+      gap:50px;
+      animation:fade 0.5s ease;
+    }
+
+    .about-row.active{
+      display:flex;
+    }
+
+    .about-col{
+      flex:1;
+    }
+
+
+    .about-title{
+      font-size:45px;
+      margin-bottom:20px;
+      color:red;
+    }
+
+    .about-text{
+      color:#ddd;
+      line-height:1.9;
+      font-size:18px;
+    }
+
+    .btns{
+      margin-top:40px;
+      display:flex;
+      gap:20px;
+    }
+
+    .btns button{
+      padding:12px 30px;
+      border:none;
+      background:red;
+      color:white;
+      font-size:16px;
+      cursor:pointer;
+      border-radius:8px;
+      transition:0.3s;
+    }
+
+    .btns button:hover{
+      background:white;
+      color:black;
+    }
+
+    @keyframes fade{
+      from{
+        opacity:0;
+        transform:translateX(30px);
+      }
+      to{
+        opacity:1;
+        transform:translateX(0);
+      }
+    }
+
+    @media(max-width:900px){
+
+      .about-row{
+        flex-direction:column;
+      }
+
+      .about-title{
+        font-size:35px;
+      }
+
+    }
+
+  </style>
+
+  <div class="about-container">
+
+    <!-- ABOUT US -->
+
+    <div class="about-row active">
+
+      <div class="about-col">
+
+        <img
+          class="about-image"
+          src="../static/WhatsApp Image 2026-05-20 at 4.27.21 PM.jpeg"
+          alt="Martial Arts"
+        >
+
+      </div>
+
+      <div class="about-col">
+
+        <h1 class="about-title">
+          About Us
+        </h1>
+
+        <p class="about-text">
+          AGNAR COMBAT CLUB is more than an MMA (Mixed Martial Arts) gym — we are a community built on discipline, respect, and the warrior mindset. We bring together fighters, beginners, fitness enthusiasts, and everyday people from all walks of life through the spirit of martial arts.
+          Rooted in MMA, our goal is not only to create strong athletes but also stronger individuals for society.
+        </p>
+
+      </div>
+
+    </div>
+
+    <!-- FOUNDER -->
+
+    <div class="about-row">
+
+      <div class="about-col">
+
+        <h1 class="about-title">
+          Founder
+        </h1>
+
+        <p class="about-text">
+          Founded by Seljo T. Joy, AGNAR COMBAT CLUB is built on discipline, strength, and the true spirit of martial arts. Seljo T. Joy is a professional Mixed Martial Arts (MMA) fighter and kickboxer from Kerala, India, known for his dedication to advanced MMA training and competitive fighting.
+        </p>
+
+      </div>
+
+      <div class="about-col">
+
+        <img
+          class="about-imagee"
+          src="../static/background-removed-background-removed (1).png"
+          alt="Founder" width="400px"
+        >
+
+      </div>
+
+      
+
+    </div>
+
+    <!-- BUTTONS -->
+
+    <div class="btns">
+
+      <button onclick="prevSlide()">Prev</button>
+
+      <button onclick="nextSlide()">Next</button>
+
+    </div>
+
+  </div>
+
+</section>
+
+<script>
+
+  let current = 0;
+
+  const slides = document.querySelectorAll(".about-row");
+
+  function showSlide(index){
+
+    slides.forEach((slide)=>{
+      slide.classList.remove("active");
+    });
+
+    slides[index].classList.add("active");
+  }
+
+  function nextSlide(){
+
+    current++;
+
+    if(current >= slides.length){
+      current = 0;
+    }
+
+    showSlide(current);
+  }
+
+  function prevSlide(){
+
+    current--;
+
+    if(current < 0){
+      current = slides.length - 1;
+    }
+
+    showSlide(current);
+  }
+
+</script>
+
+<!-- GALLERY SECTION -->
+
+<section id="gallery" class="client-gallery">
+
+    <h1>
+        OUR GALLERY
+    </h1>
+
+    <div class="gallery-container">
+
+        {% for row in gallery %}
+
+        <div class="gallery-card {% if loop.index > 8 %}hidden-gallery{% endif %}">
+
+            <img
+            src="{{ row['photo'] }}"
+            alt="{{ row['title'] }}"
+            >
+
+            <div class="gallery-content">
+
+                <h3>
+                    {{ row['title'] }}
+                </h3>
+
+                {% if row['P_dis'] %}
+
+                <p>
+                    {{ row['P_dis'] }}
+                </p>
+
+                {% endif %}
+
+            </div>
+
+        </div>
+
+        {% endfor %}
+
+    </div>
+
+    {% if gallery|length > 8 %}
+
+    <div class="show-btn-box">
+
+        <button id="showMoreBtn">
+            Show More
+        </button>
+
+    </div>
+
+    {% endif %}
+
+</section>
+
+<script>
+
+const showBtn = document.getElementById("showMoreBtn");
+
+if(showBtn){
+
+    showBtn.addEventListener("click", function(){
+
+        const hiddenCards =
+        document.querySelectorAll(".hidden-gallery");
+
+        hiddenCards.forEach(card => {
+
+            card.style.display = "block";
+
+        });
+
+        showBtn.style.display = "none";
+
+    });
+
+}
+
+</script>
+
+<!-- TRAINING -->
+
+<section id="training">
+
+    <h1>Training & Sessions</h1>
+
+    <h2>We Provide</h2>
+
+    <div class="container">
+
+        <div class="card">
+            <img src="../static/GettyImages-109087553-scaled.jpg" width="100%">
+
+            <div class="intro">
+                <h3>MMA</h3>
+
+                <p>
+                    Mixed Martial Arts (MMA) is a complete combat training program that blends
+                    striking, grappling, wrestling, and submission techniques into one powerful discipline.
+                    Our MMA sessions are designed to improve strength, speed, endurance, confidence,
+                    and self-defense skills while building mental toughness and discipline.
+                    Train with professional guidance in boxing, kickboxing, wrestling,
+                    and Brazilian Jiu-Jitsu to become a well-rounded martial artist.
+                </p>
+            </div>
+
+        </div>
+
+        <div class="card">
+
+            <img src="https://cdn.onefc.com/wp-content/uploads/2020/09/Felipe-Lobo-Yodpanomrung-Jitmuangnon-Muay-Thai-1920X1280-29.jpg">
+
+            <div class="intro">
+
+                <h3>MUAYTHAI</h3>
+
+                <p>
+                    Muay Thai, known as the “Art of Eight Limbs,” is a powerful striking martial art
+                    that uses punches, kicks, elbows, and knee techniques for complete combat training.
+                    Our sessions improve strength, speed, balance, endurance, and discipline while
+                    teaching effective self-defense skills and advanced striking combinations in a
+                    high-energy training environment.
+                </p>
+
+            </div>
+
+        </div>
+
+        <div class="card">
+
+            <img src="https://as2.ftcdn.net/v2/jpg/01/63/79/89/1000_F_163798969_qrlYJT24qCW5Wusbvbid7W6AMcPBsxFZ.jpg">
+
+            <div class="intro">
+
+                <h3>BOXING</h3>
+
+                    <p>
+                        Boxing is a dynamic combat sport focused on powerful punches, fast footwork,
+                        sharp reflexes, and defensive techniques. Our boxing training helps improve
+                        endurance, speed, coordination, discipline, and overall fitness while building
+                        confidence, mental focus, and effective self-defense skills through professional coaching.
+                    </p>
+
+            </div>
+
+        </div>
+
+        <div class="card">
+
+            <img src="https://media.istockphoto.com/photos/sportsman-muay-thai-man-boxer-stance-ad-knee-kick-at-black-background-picture-id1278379137?k=20&m=1278379137&s=612x612&w=0&h=tEBPs0z_L4SaR3UlH9HPBQtWQKXizPsnNFgqW7-Y3Lg=">
+
+            <div class="intro">
+
+                <h3>KICK BOXING</h3>
+
+                    <p>
+                        Kickboxing is a high-energy combat sport that combines powerful punches,
+                        kicks, and fast striking techniques to improve strength, balance, agility,
+                        and endurance. Our kickboxing sessions help develop full-body conditioning,
+                        self-defense skills, coordination, and mental focus in an intense and motivating
+                        training environment.
+                    </p>
+
+            </div>
+
+        </div>
+
+        <div class="card">
+
+            <img src="https://cdn.vox-cdn.com/thumbor/eKy-R5hSueL-yMwxp6npUGvDUA8=/0x0:2400x1739/2120x1413/filters:focal(943x164:1327x548)/cdn.vox-cdn.com/uploads/chorus_image/image/50447663/usa-today-8804716.0.jpg">
+
+            <div class="intro">
+
+                <h3>WRESTLING</h3>
+
+                    <p>
+                        Wrestling is a powerful grappling sport focused on takedowns, control,
+                        balance, and physical dominance. Our wrestling training improves strength,
+                        endurance, agility, body control, and mental toughness while teaching
+                        effective techniques for positioning, defense, and competitive combat performance.
+                    </p>
+
+            </div>
+
+        </div>
+
+        <div class="card">
+
+            <img src="https://www.corpus-aesthetics.com/wp-content/uploads/2020/12/jiujitsu.jpg">
+
+            <div class="intro">
+
+                <h3>JIU JITSU</h3>
+
+                    <p>
+                        Brazilian Jiu-Jitsu (BJJ) is a highly effective martial art focused on
+                        ground fighting, submissions, leverage, and technique over strength.
+                        Our BJJ training helps improve flexibility, control, problem-solving,
+                        endurance, and self-defense skills while teaching powerful submission
+                        techniques and strategic combat movements in a disciplined environment.
+                    </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- OTHER ACTIVITIES -->
+
+<section id="activities">
+
+    <h1 style="text-align:center;color:red;margin-bottom:50px;">
+        OTHER ACTIVITIES
+    </h1>
+
+    <div class="container">
+
+        <div class="simple-card">
+
+            <img
+            src="https://blogmuscular.fr/wp-content/uploads/2023/04/503_le-curl-en-pronation-developper-vos-biceps-avec-une-prise-differente.jpg?1681295818"
+            alt="Fitness Training"
+            >
+
+            <div class="intro">
+                <h3>Fitness Training</h3>
+            </div>
+
+        </div>
+
+        <div class="simple-card">
+
+            <img
+            src="https://wallpapercave.com/wp/wp11588679.jpg"
+            alt="Fat Loss Program"
+            >
+
+            <div class="intro">
+                <h3>Fat Loss Program</h3>
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- EXPLORE BUTTON -->
+
+<div class="show-btn-box">
+
+    <button
+    id="exploreBtn"
+    class="explore-btn"
+    >
+        Explore More
+    </button>
+
+</div>
+
+
+
+<!-- PROVIDE SECTION -->
+
+<section id="Provide">
+
+    <h1>
+        WHAT WE PROVIDE
+    </h1>
+
+    <div class="container">
+
+        {% for row in provide %}
+
+        <div class="card">
+
+            <img
+            src="{{ row['t_photo'] }}"
+            alt="{{ row['t_name'] }}"
+            >
+
+            <div class="intro">
+
+                <h3>
+                    {{ row['t_name'] }}
+                </h3>
+
+                {% if row['t_dis'] %}
+
+                <p>
+                    {{ row['t_dis'] }}
+                </p>
+
+                {% endif %}
+
+            </div>
+
+        </div>
+
+        {% endfor %}
+
+    </div>
+
+</section>
+
+<script>
+
+/* EXPLORE BUTTON */
+
+const exploreBtn =
+document.getElementById("exploreBtn");
+
+const provideSection =
+document.getElementById("Provide");
+
+exploreBtn.addEventListener("click", function(){
+
+    provideSection.style.display = "block";
+
+    provideSection.scrollIntoView({
+        behavior:"smooth"
+    });
+
+});
+
+</script>
+
+<!-- CONTACT -->
+
+<section id="contact">
+
+    <div class="container contact-container">
+
+        <!-- CONTACT LEFT -->
+
+        <div class="contact-left">
+
+            <h2 style="margin-bottom:20px;">
+                Get in Touch
+            </h2>
+
+            <p style="margin-bottom:15px;">
+                <strong>Address:</strong>
+                AGNAR COMBAT CLUB ( ACC ) 
+                Petta,  Ernakulam, kerala, 682308.
+            </p>
+
+            <p style="margin-bottom:15px;">
+                <strong>Phone:</strong>
+                +91 7306114475
+            </p>
+
+            <p style="margin-bottom:15px;">
+
+                <strong>Email:</strong>
+
+                <a
+                href="mailto:agnarcombatclub@gmail.com"
+                style="color:white;text-decoration:underline;"
+                >
+                    agnarcombatclub@gmail.com
+                </a>
+
+            </p>
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1964.912480624178!2d76.33153539509296!3d9.948517298302042!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3b0873000fac3273%3A0x217a5563a35b2a2a!2sAGNAR%20COMBAT%20CLUB%20(%20ACC%20)!5e0!3m2!1sen!2sin!4v1779252056903!5m2!1sen!2sin" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+
+        </div>
+
+        <!-- CONTACT RIGHT -->
+
+        <div class="contact-right">
+
+            <h3 style="margin-bottom:20px;">
+                Our Social Media
+            </h3>
+
+            <div
+            style="
+            display:flex;
+            gap:20px;
+            margin-bottom:30px;
+            "
+            >
+
+                <a
+                href="https://wa.me/7306114475"
+                target="_blank"
+                >
+
+                    <img
+                    src="https://cdn-icons-png.flaticon.com/512/733/733585.png"
+                    alt="WhatsApp"
+                    class="contact-icon"
+                    >
+
+                </a>
+
+                <a
+                href="https://www.instagram.com/agnar_combat_club_"
+                target="_blank"
+                >
+
+                    <img
+                    src="https://cdn-icons-png.flaticon.com/512/733/733558.png"
+                    alt="Instagram"
+                    class="contact-icon"
+                    >
+
+                </a>
+
+            </div>
+
+            <!-- CONTACT FORM -->
+
+            <!-- CONTACT FORM -->
+
+          <form method="POST" action="/contact">
+
+              <!-- NAME -->
+
+              <div style="margin-bottom:20px;">
+
+                  <label
+                  style="
+                  display:block;
+                  margin-bottom:8px;
+                  "
+                  >
+                      Your Name
+                  </label>
+
+                  <input
+                  type="text"
+                  name="name"
+                  required
+                  placeholder="Enter your name"
+                  style="
+                  width:100%;
+                  padding:12px;
+                  border:none;
+                  border-radius:6px;
+                  "
+                  >
+
+              </div>
+
+              <!-- EMAIL -->
+
+              <div style="margin-bottom:20px;">
+
+                  <label
+                  style="
+                  display:block;
+                  margin-bottom:8px;
+                  "
+                  >
+                      Email
+                  </label>
+
+                  <input
+                  type="email"
+                  name="email"
+                  required
+                  placeholder="Enter your email"
+                  style="
+                  width:100%;
+                  padding:12px;
+                  border:none;
+                  border-radius:6px;
+                  "
+                  >
+
+              </div>
+
+              <!-- MESSAGE -->
+
+              <div style="margin-bottom:20px;">
+
+                  <label
+                  style="
+                  display:block;
+                  margin-bottom:8px;
+                  "
+                  >
+                      Message
+                  </label>
+
+                  <textarea
+                  name="message"
+                  rows="5"
+                  required
+                  placeholder="Enter your message"
+                  style="
+                  width:100%;
+                  padding:12px;
+                  border:none;
+                  border-radius:6px;
+                  resize:none;
+                  "
+                  ></textarea>
+
+              </div>
+
+              <!-- BUTTON -->
+
+              <button
+              type="submit"
+              style="
+              padding:12px 30px;
+              border:none;
+              border-radius:6px;
+              background:red;
+              color:white;
+              cursor:pointer;
+              font-size:16px;
+              "
+              >
+                  Send Message
+              </button>
+
+          </form>
+
+        </div>
+
+    </div>
+
+</section>
+
+{% include 'footer.html' %}

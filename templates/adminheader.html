@@ -1,0 +1,297 @@
+<!-- templates/admin_header.html -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>AGNAR COMBAT CLUB - ADMIN PANEL</title>
+
+    <style>
+
+        *{
+            margin:0;
+            padding:0;
+            box-sizing:border-box;
+            font-family:Arial,sans-serif;
+        }
+
+        body{
+            background:#0a0a0a;
+            color:white;
+            overflow-x:hidden;
+        }
+
+        /* SIDEBAR */
+
+        .sidebar{
+            position:fixed;
+            top:0;
+            left:0;
+            width:260px;
+            height:100vh;
+            background:#111;
+            border-right:2px solid red;
+            padding:30px 20px;
+        }
+
+        /* LOGO */
+
+        .logo{
+            text-align:center;
+            margin-bottom:50px;
+        }
+
+        .logo img{
+            width:100px;
+            height:100px;
+            object-fit:contain;
+            margin-bottom:15px;
+        }
+
+        .logo h1{
+            color:red;
+            font-size:26px;
+        }
+
+        .logo p{
+            color:#bbb;
+            font-size:14px;
+            margin-top:5px;
+        }
+
+        /* MENU */
+
+        .menu{
+            display:flex;
+            flex-direction:column;
+            gap:15px;
+        }
+
+        .menu a{
+            text-decoration:none;
+            color:white;
+            background:#1a1a1a;
+            padding:15px;
+            border-radius:10px;
+            transition:0.3s;
+            font-size:17px;
+        }
+
+        .menu a:hover{
+            background:red;
+            transform:translateX(5px);
+        }
+
+        /* MAIN CONTENT */
+
+        .main-content{
+            margin-left:260px;
+            padding:40px;
+        }
+
+        .dashboard-box{
+            background:#111;
+            padding:40px;
+            border-radius:15px;
+            border:1px solid #222;
+        }
+
+        .dashboard-box h1{
+            color:red;
+            margin-bottom:20px;
+            font-size:40px;
+        }
+
+        .dashboard-box p{
+            color:#ccc;
+            line-height:1.8;
+            font-size:18px;
+        }
+
+        /* RESPONSIVE MOBILE DESIGN */
+
+        @media(max-width:768px){
+
+            .sidebar{
+                width:100%;
+                height:auto;
+                position:relative;
+                padding:20px 15px;
+                border-right:none;
+                border-bottom:2px solid red;
+            }
+
+            .logo{
+                margin-bottom:30px;
+            }
+
+            .logo img{
+                width:80px;
+                height:80px;
+            }
+
+            .logo h1{
+                font-size:22px;
+            }
+
+            .logo p{
+                font-size:12px;
+            }
+
+            .menu{
+                gap:10px;
+            }
+
+            .menu a{
+                text-align:center;
+                padding:12px;
+                font-size:15px;
+            }
+
+            .menu a:hover{
+                transform:none;
+            }
+
+            .main-content{
+                margin-left:0;
+                padding:20px;
+            }
+
+            .dashboard-box{
+                padding:25px 20px;
+                border-radius:12px;
+            }
+
+            .dashboard-box h1{
+                font-size:28px;
+                margin-bottom:15px;
+            }
+
+            .dashboard-box p{
+                font-size:15px;
+                line-height:1.7;
+            }
+
+        }
+
+        /* EXTRA SMALL DEVICES */
+
+        @media(max-width:480px){
+
+            .sidebar{
+                padding:15px 10px;
+            }
+
+            .logo img{
+                width:70px;
+                height:70px;
+            }
+
+            .logo h1{
+                font-size:20px;
+            }
+
+            .menu a{
+                font-size:14px;
+                padding:10px;
+            }
+
+            .dashboard-box h1{
+                font-size:24px;
+            }
+
+            .dashboard-box p{
+                font-size:14px;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+    <!-- SIDEBAR -->
+
+    <div class="sidebar">
+
+        <!-- LOGO -->
+
+        <div class="logo">
+
+            <img
+            src="/static/images/logo.png"
+            alt="Logo"
+            >
+
+            <h1>
+                AGNAR
+            </h1>
+
+            <p>
+                ADMIN DASHBOARD
+            </p>
+
+        </div>
+
+        <!-- MENU -->
+
+        <div class="menu">
+
+            <a href="/adminhome">
+                Dashboard
+            </a>
+
+            <a href="/manage_training">
+                Manage Training
+            </a>
+
+            <a href="/manage_gallery">
+                Manage Gallery
+            </a>
+
+            <a href="/manage_contact">
+                Contact Messages
+            </a>
+
+            <a href="/manage_users">
+                Manage Users
+            </a>
+
+            <a href="/">
+                Logout
+            </a>
+
+        </div>
+
+    </div>
+
+    <!-- MAIN CONTENT -->
+
+    <div class="main-content">
+
+        <div class="dashboard-box">
+
+            <h1>
+                Welcome Admin
+            </h1>
+
+            <p>
+                Manage training sessions, gallery images,
+                contact messages, and users from the
+                AGNAR COMBAT CLUB admin dashboard.
+            </p>
+
+        </div>
+
+    </div>
+
+</body>
+
+</html>

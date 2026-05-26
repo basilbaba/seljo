@@ -1,0 +1,375 @@
+<!-- templates/manage_gallery.html -->
+
+{% include 'adminheader.html' %}
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial,sans-serif;
+}
+
+body{
+    background:#0a0a0a;
+    color:white;
+}
+
+/* CONTAINER */
+
+.gallery-container{
+    margin-left:280px;
+    padding:40px;
+    color:white;
+}
+
+.gallery-title{
+    color:red;
+    font-size:40px;
+    margin-bottom:30px;
+}
+
+/* FORM */
+
+.gallery-form{
+    background:#111;
+    padding:30px;
+    border-radius:15px;
+    max-width:700px;
+    border:1px solid #333;
+}
+
+.form-group{
+    margin-bottom:25px;
+}
+
+.form-group label{
+    display:block;
+    margin-bottom:10px;
+    font-size:18px;
+}
+
+.form-group input,
+.form-group textarea{
+    width:100%;
+    padding:14px;
+    border:none;
+    border-radius:8px;
+    background:#222;
+    color:white;
+    font-size:16px;
+    outline:none;
+}
+
+.form-group textarea{
+    resize:none;
+    height:120px;
+}
+
+.submit-btn{
+    background:red;
+    color:white;
+    border:none;
+    padding:14px 35px;
+    border-radius:8px;
+    font-size:18px;
+    cursor:pointer;
+    transition:0.3s;
+}
+
+.submit-btn:hover{
+    background:#cc0000;
+}
+
+/* TABLE */
+
+.gallery-table{
+    margin-top:50px;
+    width:100%;
+    border-collapse:collapse;
+    background:#111;
+    border-radius:10px;
+    overflow:hidden;
+}
+
+.gallery-table th,
+.gallery-table td{
+    border:1px solid #333;
+    padding:15px;
+    text-align:center;
+}
+
+.gallery-table th{
+    background:red;
+    color:white;
+}
+
+.gallery-table td{
+    color:#ddd;
+}
+
+.gallery-table img{
+    width:120px;
+    height:90px;
+    object-fit:cover;
+    border-radius:8px;
+}
+
+.delete-btn{
+    background:red;
+    color:white;
+    padding:8px 18px;
+    border:none;
+    border-radius:6px;
+    text-decoration:none;
+    transition:0.3s;
+}
+
+.delete-btn:hover{
+    background:#cc0000;
+}
+
+/* MOBILE RESPONSIVE */
+
+@media(max-width:768px){
+
+    .gallery-container{
+        margin-left:0;
+        padding:15px;
+    }
+
+    .gallery-title{
+        font-size:28px;
+        text-align:center;
+        margin-bottom:20px;
+    }
+
+    .gallery-form{
+        width:100%;
+        padding:20px;
+        border-radius:12px;
+    }
+
+    .form-group{
+        margin-bottom:18px;
+    }
+
+    .form-group label{
+        font-size:15px;
+        margin-bottom:8px;
+    }
+
+    .form-group input,
+    .form-group textarea{
+        padding:12px;
+        font-size:14px;
+    }
+
+    .form-group textarea{
+        height:100px;
+    }
+
+    .submit-btn{
+        width:100%;
+        padding:12px;
+        font-size:16px;
+    }
+
+    /* TABLE RESPONSIVE */
+
+    .gallery-table{
+        display:block;
+        overflow-x:auto;
+        white-space:nowrap;
+        margin-top:30px;
+    }
+
+    .gallery-table th,
+    .gallery-table td{
+        padding:10px;
+        font-size:14px;
+    }
+
+    .gallery-table img{
+        width:90px;
+        height:70px;
+    }
+
+    .delete-btn{
+        padding:7px 14px;
+        font-size:13px;
+    }
+
+}
+
+/* EXTRA SMALL DEVICES */
+
+@media(max-width:480px){
+
+    .gallery-title{
+        font-size:24px;
+    }
+
+    .gallery-form{
+        padding:15px;
+    }
+
+    .form-group input,
+    .form-group textarea{
+        font-size:13px;
+        padding:10px;
+    }
+
+    .submit-btn{
+        font-size:15px;
+    }
+
+    .gallery-table th,
+    .gallery-table td{
+        font-size:12px;
+        padding:8px;
+    }
+
+    .gallery-table img{
+        width:70px;
+        height:55px;
+    }
+
+    .delete-btn{
+        padding:6px 10px;
+        font-size:12px;
+    }
+
+}
+
+</style>
+
+<div class="gallery-container">
+
+    <h1 class="gallery-title">
+        Manage Gallery
+    </h1>
+
+    <!-- FORM -->
+
+    <form
+    method="POST"
+    class="gallery-form"
+    >
+
+        <!-- TITLE -->
+
+        <div class="form-group">
+
+            <label>
+                Image Title
+            </label>
+
+            <input
+            type="text"
+            name="title"
+            placeholder="Enter Image Title"
+            >
+
+        </div>
+
+        <!-- IMAGE -->
+
+        <div class="form-group">
+
+            <label>
+                Image URL
+            </label>
+
+            <input
+            type="text"
+            name="image"
+            placeholder="Enter Image URL"
+            required
+            >
+
+        </div>
+
+        <!-- DESCRIPTION -->
+
+        <div class="form-group">
+
+            <label>
+                Description (Optional)
+            </label>
+
+            <textarea
+            name="description"
+            placeholder="Enter Description"
+            ></textarea>
+
+        </div>
+
+        <!-- BUTTON -->
+
+        <button
+        type="submit"
+        name="submit"
+        class="submit-btn"
+        >
+            Add Image
+        </button>
+
+    </form>
+
+    <!-- TABLE -->
+
+    <table class="gallery-table">
+
+        <tr>
+            <th>ID</th>
+            <th>Image</th>
+            <th>Title</th>
+            <th>Description</th>
+            <th>Action</th>
+        </tr>
+
+        {% for row in data['gallery'] %}
+
+        <tr>
+
+            <td>
+                {{ row['P_id'] }}
+            </td>
+
+            <td>
+
+                <img
+                src="{{ row['photo'] }}"
+                alt="Gallery Image"
+                >
+
+            </td>
+
+            <td>
+                {{ row['titile'] }}
+            </td>
+
+            <td>
+                {{ row['P_dis'] }}
+            </td>
+
+            <td>
+
+                <a
+                href="?action=delete&id={{ row['p_id'] }}"
+                class="delete-btn"
+                >
+                    Delete
+                </a>
+
+            </td>
+
+        </tr>
+
+        {% endfor %}
+
+    </table>
+
+</div>

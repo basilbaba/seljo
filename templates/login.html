@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>AGNAR COMBAT CLUB - LOGIN</title>
+
+    <style>
+
+        *{
+            margin:0;
+            padding:0;
+            box-sizing:border-box;
+            font-family:Arial,sans-serif;
+        }
+
+        body{
+            min-height:100vh;
+            display:flex;
+            justify-content:center;
+            align-items:center;
+            background:black;
+            padding:20px;
+        }
+
+        .login-box{
+            width:400px;
+            max-width:100%;
+            background:#111;
+            padding:40px;
+            border-radius:15px;
+            border:2px solid red;
+            box-shadow:0 0 20px rgba(255,0,0,0.4);
+        }
+
+        .login-box h1{
+            text-align:center;
+            color:red;
+            margin-bottom:30px;
+            font-size:40px;
+        }
+
+        .input-box{
+            margin-bottom:20px;
+        }
+
+        .input-box label{
+            display:block;
+            color:white;
+            margin-bottom:8px;
+            font-size:16px;
+        }
+
+        .input-box input{
+            width:100%;
+            padding:12px;
+            border:none;
+            border-radius:8px;
+            outline:none;
+            background:#222;
+            color:white;
+            font-size:16px;
+        }
+
+        .input-box input:focus{
+            border:1px solid red;
+        }
+
+        .login-btn{
+            width:100%;
+            padding:14px;
+            border:none;
+            border-radius:8px;
+            background:red;
+            color:white;
+            font-size:18px;
+            cursor:pointer;
+            transition:0.3s;
+        }
+
+        .login-btn:hover{
+            background:#cc0000;
+        }
+
+        .error{
+            color:red;
+            text-align:center;
+            margin-bottom:15px;
+        }
+
+        /* MOBILE RESPONSIVE */
+
+        @media(max-width:600px){
+
+            body{
+                padding:15px;
+            }
+
+            .login-box{
+                width:100%;
+                padding:25px;
+                border-radius:12px;
+            }
+
+            .login-box h1{
+                font-size:30px;
+                margin-bottom:25px;
+            }
+
+            .input-box label{
+                font-size:14px;
+            }
+
+            .input-box input{
+                padding:10px;
+                font-size:14px;
+            }
+
+            .login-btn{
+                padding:12px;
+                font-size:16px;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+    <div class="login-box">
+
+        <h1>LOGIN</h1>
+
+        {% if error %}
+        <p class="error">{{ error }}</p>
+        {% endif %}
+
+        <form method="POST">
+
+            <div class="input-box">
+
+                <label>Username</label>
+
+                <input
+                    type="text"
+                    name="username"
+                    placeholder="Enter Username"
+                    required
+                >
+
+            </div>
+
+            <div class="input-box">
+
+                <label>Password</label>
+
+                <input
+                    type="password"
+                    name="password"
+                    placeholder="Enter Password"
+                    required
+                >
+
+            </div>
+
+            <button
+                type="submit"
+                name="submit"
+                value="Login"
+                class="login-btn"
+            >
+                Login
+            </button>
+
+        </form>
+
+    </div>
+
+</body>
+
+</html>
